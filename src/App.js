@@ -24,10 +24,8 @@ app.post("/singUp", async (req, res) => {
     gender: "Female",
   });
   try {
-    // await user.save();
-    // res.send("Data Added Successfully.");
-      throw new Error("Testing catch block");
-
+    await user.save();
+    res.send("Data Added Successfully.");
   } catch (err) {
     res.status(400).send("Data not added" + err)
   }
