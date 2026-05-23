@@ -1,0 +1,17 @@
+{
+  "name": "devtinderbackend",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Shirley Butti",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/App.js",
+    "dev": "nodemon src/App.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "mongoose": "^9.6.2"
+  }
+}
