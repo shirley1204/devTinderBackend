@@ -3,7 +3,6 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 
 async function validations(value) {
-  console.log(value);
   const { firstName, lastName, emailId } = value;
   if (!firstName || !lastName) {
     throw new Error("Name should be Valid");
