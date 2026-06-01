@@ -19,6 +19,7 @@ Router.post("/singUp", async (req, res) => {
       gender,
       password: passwordhash,
     });
+    console.log("user", user)
     await user.save();
     res.send("Data Added Successfully.");
   } catch (err) {
