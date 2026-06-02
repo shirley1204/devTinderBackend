@@ -26,7 +26,9 @@ app.use(cookies()); //cookie middleware
 const AuthRouter = require("./Routers/AuthRouter");
 const Profilerouter = require("./Routers/ProfileRouter");
 const RequestRouter = require("./Routers/RequestRouter");
+const UserRouter = require('./Routers/UserRouter');
 
 app.use("/", AuthRouter);
 app.use("/", Profilerouter);
 app.use("/", RequestRouter);
+app.use("/" , UserRouter);
