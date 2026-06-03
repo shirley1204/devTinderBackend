@@ -6,6 +6,7 @@ const { validations, UserAuth } = require("./utils/validations");
 const bcrypt = require("bcrypt");
 const cookies = require("cookie-parser");
 const jwt = require("jsonwebtoken");
+const cors = require("cors");
 
 require("dotenv").config();
 
@@ -22,13 +23,14 @@ connectDB()
 
 app.use(express.json()); //json niddleware
 app.use(cookies()); //cookie middleware
+app.use(cors({ origin: "http://localhost:5173", credentials: true })); //cors middleware
 
 const AuthRouter = require("./Routers/AuthRouter");
 const Profilerouter = require("./Routers/ProfileRouter");
 const RequestRouter = require("./Routers/RequestRouter");
-const UserRouter = require('./Routers/UserRouter');
+const UserRouter = require("./Routers/UserRouter");
 
 app.use("/", AuthRouter);
 app.use("/", Profilerouter);
 app.use("/", RequestRouter);
-app.use("/" , UserRouter);
+app.use("/", UserRouter);

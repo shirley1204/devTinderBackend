@@ -40,7 +40,7 @@ Router.post("/login", async (req, res) => {
       res.cookie("token", token, {
         expires: new Date(Date.now() + 60 * 60 * 1000),
       });
-      res.status(200).send("Login Successfully");
+      res.status(200).json({message :"Login Successfully" , data : user});
     } else {
       res.status(400).send("Login Failed");
     }
