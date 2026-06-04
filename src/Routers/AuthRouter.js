@@ -38,14 +38,14 @@ Router.post("/login", async (req, res) => {
     if (isPasswordValid) {
       const token = await user.getToken();
       res.cookie("token", token, {
-        expires: new Date(Date.now() + 60 * 60 * 1000),
+        expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
       });
       res.status(200).json({message :"Login Successfully" , data : user});
     } else {
       res.status(400).send("Login Failed");
     }
   } catch (err) {
-    res.status(400).send("Something Went Wrong" + err);
+    res.status(400).send("Something Went Wrong: " + err);
   }
 });
 
