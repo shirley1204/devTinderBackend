@@ -6,7 +6,7 @@ async function validations(value) {
   const { firstName, lastName, emailId } = value;
   if (!firstName || !lastName) {
     throw new Error("Name should be Valid");
-  } else if (firstName.length > 50 || firstName.length < 4) {
+  } else if (firstName.length > 50 || firstName.length < 2) {
     throw new Error("Name should be between length 4to50");
   } else if (!validator.isEmail(emailId)) {
     throw new Error("Enter Valid email id");

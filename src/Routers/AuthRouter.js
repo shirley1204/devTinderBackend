@@ -20,7 +20,7 @@ Router.post("/singUp", async (req, res) => {
       password: passwordhash,
     });
     await user.save();
-    res.send("Data Added Successfully.");
+    res.json({message :"Data Added Successfully.",data : user});
   } catch (err) {
     res.status(400).send("Data not added" + err);
   }

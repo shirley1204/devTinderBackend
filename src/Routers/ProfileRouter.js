@@ -18,7 +18,7 @@ Router.get("/profile", UserAuth, async (req, res) => {
 Router.patch("/profile/edit", UserAuth, async (req, res) => {
   const loggedInUser = req.user;
   try {
-    const allowUpdates = ["gender", "age", "userId", "firstName", "lastName"];
+    const allowUpdates = ["gender", "age", "userId", "firstName", "lastName","about"];
     const isAllowedUpdates = Object.keys(req.body).every((k) =>
       allowUpdates.includes(k),
     );
@@ -29,7 +29,7 @@ Router.patch("/profile/edit", UserAuth, async (req, res) => {
         (key) => (loggedInUser[key] = req.body[key]),
       );
       await loggedInUser.save();
-      res.send("User Updated Successfully");
+      res.json({message:"User Updated Successfully",data:loggedInUser });
     }
   } catch (err) {
     res.status(400).send("Something Went Wrong" + err);
