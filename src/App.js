@@ -28,9 +28,11 @@ app.use(cors({ origin: "http://localhost:5173", credentials: true })); //cors mi
 const AuthRouter = require("./Routers/AuthRouter");
 const Profilerouter = require("./Routers/ProfileRouter");
 const RequestRouter = require("./Routers/RequestRouter");
-const UserRouter = require("./Routers/UserRouter");
+const UserRouter = require("./Routers/UserRouter"); 
+const PaymentRouter = require("./Routers/PaymentRouter");
 
 app.use("/", AuthRouter);
 app.use("/", Profilerouter);
 app.use("/", RequestRouter);
 app.use("/", UserRouter);
+app.use("/", PaymentRouter);
