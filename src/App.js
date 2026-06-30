@@ -7,13 +7,18 @@ const bcrypt = require("bcrypt");
 const cookies = require("cookie-parser");
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
+const http = require("http");
 
 require("dotenv").config();
+
+const initializeSocket = require("./utils/socket");
+const server = http.createServer(app);
+initializeSocket(server);
 
 connectDB()
   .then(() => {
     console.log("Database connection established successfully.");
-    app.listen(3000, () => {
+    server.listen(3000, () => {
       console.log("server is created1");
     });
   })
@@ -30,9 +35,11 @@ const Profilerouter = require("./Routers/ProfileRouter");
 const RequestRouter = require("./Routers/RequestRouter");
 const UserRouter = require("./Routers/UserRouter"); 
 const PaymentRouter = require("./Routers/PaymentRouter");
+const ChatRouter = require("./Routers/ChatRouter")
 
 app.use("/", AuthRouter);
 app.use("/", Profilerouter);
 app.use("/", RequestRouter);
 app.use("/", UserRouter);
 app.use("/", PaymentRouter);
+app.use("/",ChatRouter);

@@ -65,7 +65,6 @@ Router.get("/feed", UserAuth, async (req, res) => {
       blockedUser.add(item.fromUserId);
     });
 
-    console.log("blockedUser",blockedUser)
 
     const users = await User.find({
       $and: [
